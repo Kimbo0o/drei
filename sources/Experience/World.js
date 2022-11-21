@@ -33,7 +33,10 @@ export default class World {
 
     this.scene.add(this.room.model);
 
-    const directionalLight = new THREE.DirectionalLight("#ffffff", 2);
+    const ambientLight = new THREE.AmbientLight("#ffffff", 1);
+    this.scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
     directionalLight.position.set(0, 2, 4);
     directionalLight.castShadow = true;
     directionalLight.shadow.bias = -0.0005;
@@ -48,7 +51,7 @@ export default class World {
       this.scene.add(helper);
     }
 
-    const directionalLight2 = new THREE.DirectionalLight("#ffffff", 2);
+    const directionalLight2 = new THREE.DirectionalLight("#ffffff", 1);
     directionalLight2.position.set(5, 3.6, 5);
     directionalLight2.castShadow = true;
     directionalLight2.shadow.bias = -0.0005;
