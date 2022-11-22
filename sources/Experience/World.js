@@ -36,25 +36,25 @@ export default class World {
     const ambientLight = new THREE.AmbientLight("#ffffff", 1);
     this.scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
-    directionalLight.position.set(0, 2, 4);
-    directionalLight.castShadow = true;
-    directionalLight.shadow.bias = -0.0005;
-    this.scene.add(directionalLight);
+    // const directionalLight = new THREE.DirectionalLight("#ffffff", 1);
+    // directionalLight.position.set(0, 2, 4);
+    // directionalLight.castShadow = true;
+    // directionalLight.shadow.bias = -0.0005;
+    // this.scene.add(directionalLight);
 
-    if (this.debug) {
-      const helper = new THREE.DirectionalLightHelper(
-        directionalLight,
-        1,
-        "#ffffff"
-      );
-      this.scene.add(helper);
-    }
+    // if (this.debug) {
+    //   const helper = new THREE.DirectionalLightHelper(
+    //     directionalLight,
+    //     1,
+    //     "#ffffff"
+    //   );
+    //   this.scene.add(helper);
+    // }
 
     const directionalLight2 = new THREE.DirectionalLight("#ffffff", 1);
     directionalLight2.position.set(5, 3.6, 5);
     directionalLight2.castShadow = true;
-    directionalLight2.shadow.bias = -0.0005;
+    directionalLight2.shadow.bias = -0.0004;
 
     // const light2Target = new THREE.Object3D();
     // light2Target.position.set(0, 2, 4);
@@ -70,16 +70,23 @@ export default class World {
       );
       this.scene.add(helper2);
 
-      this.debugFolder = this.debug.addFolder("lights");
+      this.debugFolder = this.debug.addFolder("DirectionalLight");
       this.debugFolder.add(directionalLight2.position, "x").min(-5).max(5);
       this.debugFolder.add(directionalLight2.position, "y").min(-5).max(5);
       this.debugFolder.add(directionalLight2.position, "z").min(-5).max(5);
     }
 
-    const accentLight = new THREE.RectAreaLight("#0000FF", 10, 0.7, 0.3);
-    accentLight.position.set(-1.4, 1.51163, 0.5);
-    accentLight.lookAt(-3, 1.51163, 0.5);
+    const accentLight = new THREE.RectAreaLight("#0000FF", 50, 0.7, 0.3);
+    accentLight.position.set(-1.4, 1.51163, 0.34);
+    accentLight.lookAt(-3, 1.51163, 0.34);
     this.scene.add(accentLight);
+
+    if (this.debug) {
+      this.accentLightFolder = this.debug.addFolder("accentLight");
+      this.accentLightFolder.add(accentLight.position, "x").min(-5).max(5);
+      this.accentLightFolder.add(accentLight.position, "y").min(-5).max(5);
+      this.accentLightFolder.add(accentLight.position, "z").min(-5).max(5);
+    }
 
     // const testLight = new THREE.PointLight("#0000ff", 10);
     // // testLight.castShadow = true;

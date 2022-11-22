@@ -26,7 +26,7 @@ export default class Renderer {
   }
 
   setInstance() {
-    this.clearColor = "#010101";
+    this.clearColor = "#999";
 
     // Renderer
     this.instance = new THREE.WebGLRenderer({
@@ -49,7 +49,7 @@ export default class Renderer {
     this.instance.shadowMap.type = THREE.PCFSoftShadowMap;
     this.instance.shadowMap.enabled = true;
     // this.instance.toneMapping = THREE.NoToneMapping
-    this.instance.toneMapping = THREE.CineonToneMapping;
+    this.instance.toneMapping = THREE.ReinhardToneMapping;
     this.instance.toneMappingExposure = 1;
 
     this.context = this.instance.getContext();
