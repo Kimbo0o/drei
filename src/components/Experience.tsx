@@ -56,23 +56,23 @@ const Experience = () => {
         speed={1}
       />
 
-      <Float rotationIntensity={0.3}>
-        <Center>
-          <primitive castShadow receiveShadow object={scene}>
-            <Website />
-          </primitive>
-          {/* <ContactShadows position-y={-0.0} /> */}
-          <rectAreaLight
-            color={"#0000FF"}
-            intensity={50}
-            width={0.7}
-            height={0.3}
-            position={[-1.4, 1.51163, 0.34]}
-            rotation={[0, Math.PI / 2, 0]}
-          />
-          {/* <FloorLampLight /> */}
-        </Center>
-      </Float>
+      {/* <Float rotationIntensity={0.3}> */}
+      <Center>
+        <primitive castShadow receiveShadow object={scene}>
+          <Website />
+        </primitive>
+        {/* <ContactShadows position-y={-0.0} /> */}
+        <rectAreaLight
+          color={"#0000FF"}
+          intensity={50}
+          width={0.7}
+          height={0.3}
+          position={[-1.4, 1.51163, 0.34]}
+          rotation={[0, Math.PI / 2, 0]}
+        />
+        {/* <FloorLampLight /> */}
+      </Center>
+      {/* </Float> */}
     </Canvas>
   );
 };
