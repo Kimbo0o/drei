@@ -7,13 +7,12 @@
 //   // const { floorlamp } = useControls({
 //   //   floorlamp: { x: -1, y: 2, z: -1.2, rx: 0, ry: 0, rz: 0 },
 //   // });
-//   const { floorlamp_position, floorlamp_rotation } = useControls({
+//   const { floorlamp_position } = useControls({
 //     floorlamp_position: { x: -1.1, y: 2, z: -1.3 },
 //   });
 
 //   const light = useRef();
 //   useHelper(light, THREE.SpotLightHelper);
-//   light.current.lookAt(0, 0, 0);
 
 //   return (
 //     <SpotLight
@@ -24,8 +23,10 @@
 //         floorlamp_position.z,
 //       ]}
 //       intensity={2}
+
 //       angle={0.5}
 //       color={"#ff0000"}
+//       rotation={[Math.PI * 1.2, 0, 0]}
 //       castShadow
 //     />
 //   );
