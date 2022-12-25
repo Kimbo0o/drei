@@ -8,7 +8,7 @@ import {
   Float,
 } from "@react-three/drei";
 import { useLayoutEffect } from "react";
-// import FloorLampLight from "./FloorLampLight";
+import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
 
 const Experience = () => {
@@ -70,7 +70,7 @@ const Experience = () => {
           position={[-1.4, 1.51163, 0.34]}
           rotation={[0, Math.PI / 2, 0]}
         />
-        {/* <FloorLampLight /> */}
+        <FloorLampLight />
       </Center>
       {/* </Float> */}
     </Canvas>
