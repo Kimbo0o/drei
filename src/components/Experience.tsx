@@ -59,7 +59,7 @@ const Experience = () => {
       {/* <Float rotationIntensity={0.3}> */}
       <Center>
         <primitive castShadow receiveShadow object={scene}>
-          {/* <Website /> */}
+          <Website />
         </primitive>
         {/* <ContactShadows position-y={-0.0} /> */}
         <rectAreaLight
