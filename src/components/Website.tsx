@@ -19,6 +19,8 @@ const Website = () => {
     >
       <iframe
         src="https://kimdanielkoch.de"
+        width={1920}
+        height={1080}
         className="border-none w-[1920px] h-[1080px] rounded-lg bg-black"
       />
     </Html>
