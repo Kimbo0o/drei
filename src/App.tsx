@@ -1,13 +1,14 @@
 // import { useState } from 'react'
+import { Leva } from "leva";
 import "./App.css";
 
 import Experience from "./components/Experience";
 
 function App() {
-  // const [count, setCount] = useState(0)
-  // return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  console.log("search", window.location.search, "1");
   return (
     <div className="w-screen h-screen">
+      <Leva hidden={!window.location.search.includes("debug")} />
       <Experience />
     </div>
   );
