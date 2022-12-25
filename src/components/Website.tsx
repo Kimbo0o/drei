@@ -15,6 +15,7 @@ const Website = () => {
       distanceFactor={0.128}
       position={[-1.23, 1.51, 0.355]}
       rotation-y={Math.PI / 2}
+      occlude
     >
       <iframe
         src="https://kimdanielkoch.de"
