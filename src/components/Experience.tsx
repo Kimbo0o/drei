@@ -67,7 +67,7 @@ const Experience = () => {
           intensity={50}
           width={0.7}
           height={0.3}
-          position={[-1.4, 1.51163, 0.34]}
+          position={[-1.4, 1.51163, -0.15]}
           rotation={[0, Math.PI / 2, 0]}
         />
         <FloorLampLight />
