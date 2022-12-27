@@ -11,6 +11,7 @@ import {
 import { useLayoutEffect } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
+import { Model } from "./Room";
 
 const Experience = () => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -60,6 +61,9 @@ const Experience = () => {
       <primitive castShadow receiveShadow object={scene}>
         <Website />
       </primitive>
+      {/* <Model>
+        <Website />
+      </Model> */}
       <rectAreaLight
         color={"#0000FF"}
         intensity={50}
