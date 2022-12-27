@@ -12,6 +12,7 @@ import { useLayoutEffect } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
 import BackgroundLight from "./BackgroundLight";
+import BikeFrontWheel from "./BikeFrontWheel";
 
 const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -63,6 +64,7 @@ const Experience = (props: { lightMode: boolean }) => {
       <primitive castShadow receiveShadow object={scene}>
         <Website />
       </primitive>
+      <BikeFrontWheel />
       <BackgroundLight />
       <FloorLampLight />
     </Canvas>
