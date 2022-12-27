@@ -6,6 +6,7 @@ import {
   Center,
   Environment,
   Float,
+  PerspectiveCamera,
 } from "@react-three/drei";
 import { useLayoutEffect } from "react";
 import FloorLampLight from "./FloorLampLight";
@@ -13,6 +14,7 @@ import Website from "./Website";
 
 const Experience = () => {
   const { scene } = useGLTF("/roomModel.glb");
+  console.log("scene", scene);
   useLayoutEffect(() => {
     scene.traverse((obj: any) => {
       if (obj.isMesh) {
@@ -23,16 +25,16 @@ const Experience = () => {
   });
 
   return (
-    <Canvas
-      shadows
-      camera={{
-        fov: 25,
-        near: 0.1,
-        far: 2000,
-        position: [10, 5, 10],
-      }}
-    >
-      {/* <rectAreaLight /> */}
+    <Canvas shadows>
+      <PerspectiveCamera
+        fov={25}
+        near={0.1}
+        far={2000}
+        position={[10, 6, 10]}
+        makeDefault
+      />
+      <OrbitControls makeDefault target={[0, 1.5, 0]} />
+
       <Environment preset="city" />
       {/* <ambientLight color="#ffffff" intensity="0.4" /> */}
       <directionalLight
@@ -44,7 +46,6 @@ const Experience = () => {
       />
 
       <color args={["#444"]} attach="background" />
-      <OrbitControls makeDefault />
 
       <Stars
         radius={100}
@@ -56,23 +57,18 @@ const Experience = () => {
         speed={1}
       />
 
-      {/* <Float rotationIntensity={0.3}> */}
-      <Center>
-        <primitive castShadow receiveShadow object={scene}>
-          <Website />
-        </primitive>
-        {/* <ContactShadows position-y={-0.0} /> */}
-        <rectAreaLight
-          color={"#0000FF"}
-          intensity={50}
-          width={0.7}
-          height={0.3}
-          position={[-1.4, 1.51163, -0.15]}
-          rotation={[0, Math.PI / 2, 0]}
-        />
-        <FloorLampLight />
-      </Center>
-      {/* </Float> */}
+      <primitive castShadow receiveShadow object={scene}>
+        <Website />
+      </primitive>
+      <rectAreaLight
+        color={"#0000FF"}
+        intensity={50}
+        width={0.7}
+        height={0.3}
+        position={[-1.4, 1.5, -0.15]}
+        rotation={[0, Math.PI / 2, 0]}
+      />
+      <FloorLampLight />
     </Canvas>
   );
 };
