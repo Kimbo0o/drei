@@ -3,13 +3,17 @@ import { Leva } from "leva";
 import "./App.css";
 
 import Experience from "./components/Experience";
+import Controls from "./components/Controls";
+import { useState } from "react";
 
 function App() {
-  console.log("search", window.location.search, "1");
+  const [lightMode, setLightMode] = useState(true);
+
   return (
-    <div className="w-screen h-screen">
+    <div className="w-screen h-screen relative">
       <Leva hidden={!window.location.search.includes("debug")} />
-      <Experience />
+      <Experience lightMode={lightMode} />
+      <Controls lightMode={lightMode} setLightMode={setLightMode} />
     </div>
   );
 }

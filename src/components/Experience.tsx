@@ -11,9 +11,8 @@ import {
 import { useLayoutEffect } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
-import { Model } from "./Room";
 
-const Experience = () => {
+const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
   console.log("scene", scene);
   useLayoutEffect(() => {
@@ -36,7 +35,9 @@ const Experience = () => {
       />
       <OrbitControls makeDefault target={[0, 1.5, 0]} />
 
-      <Environment preset="city" />
+      {props.lightMode && <Environment preset="city" />}
+      {!props.lightMode && <Environment preset="night" />}
+
       {/* <ambientLight color="#ffffff" intensity="0.4" /> */}
       <directionalLight
         position={[5, 3.6, 5]}
@@ -61,9 +62,6 @@ const Experience = () => {
       <primitive castShadow receiveShadow object={scene}>
         <Website />
       </primitive>
-      {/* <Model>
-        <Website />
-      </Model> */}
       <rectAreaLight
         color={"#0000FF"}
         intensity={50}
