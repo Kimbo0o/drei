@@ -9,7 +9,7 @@ const Controls = (props: {
   };
 
   return (
-    <div className="absolute right-0 bottom-0 p-4 flex gap-4 text-white">
+    <div className="absolute top-0 left-0 p-4 flex gap-4 text-white">
       <button
         className="rounded-full  p-2 bg-white/20 hover:bg-white/50"
         onClick={onClickLightMode}

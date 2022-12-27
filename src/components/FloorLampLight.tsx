@@ -1,9 +1,24 @@
 import * as THREE from "three";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHelper, SpotLight } from "@react-three/drei";
 import { useControls } from "leva";
+import { calculateNextValues } from "../lib/rgb";
 
 const FloorLampLight = () => {
+  const [colorValue, setColorValue] = useState({ r: 0, g: 255, b: 0 });
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const { r, g, b } = calculateNextValues(
+        colorValue.r,
+        colorValue.g,
+        colorValue.b
+      );
+      setColorValue({ r, g, b });
+    }, 50);
+    return () => clearInterval(interval);
+  }, [colorValue]);
+
   const { x, y, z, distance, angle, penumbra, decay } = useControls(
     "floorlamp",
     {
@@ -21,13 +36,12 @@ const FloorLampLight = () => {
   //   useHelper(light, THREE.SpotLightHelper);
 
   const target = new THREE.Object3D();
-
   return (
     <mesh>
       <SpotLight
         ref={light as any}
         position={[x, y, z]}
-        color={"#E87D0D"}
+        color={`rgb(${colorValue.r}, ${colorValue.g}, ${colorValue.b})`}
         target={target}
         attenuation={0}
         intensity={10}

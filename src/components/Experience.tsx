@@ -11,6 +11,7 @@ import {
 import { useLayoutEffect } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
+import BackgroundLight from "./BackgroundLight";
 
 const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -35,8 +36,8 @@ const Experience = (props: { lightMode: boolean }) => {
       />
       <OrbitControls makeDefault target={[0, 1.5, 0]} />
 
-      {props.lightMode && <Environment preset="city" />}
-      {!props.lightMode && <Environment preset="night" />}
+      {props.lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
+      {!props.lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
 
       {/* <ambientLight color="#ffffff" intensity="0.4" /> */}
       <directionalLight
@@ -62,14 +63,7 @@ const Experience = (props: { lightMode: boolean }) => {
       <primitive castShadow receiveShadow object={scene}>
         <Website />
       </primitive>
-      <rectAreaLight
-        color={"#0000FF"}
-        intensity={50}
-        width={0.7}
-        height={0.3}
-        position={[-1.4, 1.5, -0.15]}
-        rotation={[0, Math.PI / 2, 0]}
-      />
+      <BackgroundLight />
       <FloorLampLight />
     </Canvas>
   );

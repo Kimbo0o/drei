@@ -6,6 +6,10 @@ import Experience from "./components/Experience";
 import Controls from "./components/Controls";
 import { useState } from "react";
 
+// const tourSteps = [{
+//   lookAt: []
+// }]
+
 function App() {
   const [lightMode, setLightMode] = useState(true);
 
