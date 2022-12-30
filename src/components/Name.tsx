@@ -10,8 +10,9 @@ const Name = () => {
         lineHeight={0.6}
         size={0.18}
         font="/Inter_Bold.json"
-        position={[-1.35, 2.4, 1]}
+        position={[-1.37, 2.4, 1]}
         rotation={[0, Math.PI / 2, 0]}
+        castShadow
       >
         {`Kim\nDaniel`}
         <meshNormalMaterial />
