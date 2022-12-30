@@ -1,11 +1,10 @@
 import { Canvas } from "@react-three/fiber";
+
 import {
   OrbitControls,
   Stars,
   useGLTF,
-  Center,
   Environment,
-  Float,
   PerspectiveCamera,
 } from "@react-three/drei";
 import { useLayoutEffect } from "react";
@@ -18,6 +17,7 @@ import VrGlasses from "./VrGlasses";
 import PhotoCamera from "./PhotoCamera";
 import PrinterPlate from "./PrinterPlate";
 import Name from "./Name";
+import AdditionalLight from "./AdditionalLight";
 
 const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -45,14 +45,7 @@ const Experience = (props: { lightMode: boolean }) => {
       {props.lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
       {!props.lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
 
-      {/* <ambientLight color="#ffffff" intensity="0.4" /> */}
-      <directionalLight
-        position={[5, 3.6, 5]}
-        color={"#ffffff"}
-        intensity={0.3}
-        castShadow
-        shadow-bias={-0.0004}
-      />
+      <AdditionalLight />
 
       <color args={["#444"]} attach="background" />
 
@@ -66,9 +59,9 @@ const Experience = (props: { lightMode: boolean }) => {
         speed={1}
       />
 
-      <primitive castShadow receiveShadow object={scene}>
-        <Website />
-      </primitive>
+      <primitive castShadow receiveShadow object={scene} />
+
+      <Website />
       <SeatTop />
       <VrGlasses />
       <PhotoCamera />
