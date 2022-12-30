@@ -17,6 +17,7 @@ import SeatTop from "./SeatTop";
 import VrGlasses from "./VrGlasses";
 import PhotoCamera from "./PhotoCamera";
 import PrinterPlate from "./PrinterPlate";
+import Name from "./Name";
 
 const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -75,6 +76,7 @@ const Experience = (props: { lightMode: boolean }) => {
       <PrinterPlate />
       <BackgroundLight />
       <FloorLampLight />
+      <Name />
     </Canvas>
   );
 };

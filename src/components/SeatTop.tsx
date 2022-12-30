@@ -7,10 +7,7 @@ const SeatTop = () => {
   useFrame(({ clock }) => {
     if (model?.scene?.children.length) {
       model.scene.children[0].rotation.y =
-        Math.sin(clock.getElapsedTime()) * 0.5 + 0.1;
-      // model.scene.children[0].position.x = 1;
-      // model.scene.children[0].position.y = 0;
-      // model.scene.children[0].position.z = 0;
+        Math.sin(clock.getElapsedTime()) * 0.3 + 0.1;
     }
   });
 
