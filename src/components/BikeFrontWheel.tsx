@@ -12,9 +12,7 @@ const BikeFrontWheel = () => {
 
   return (
     <group>
-      <mesh>
-        <primitive castShadow receiveShadow object={model.scene} />
-      </mesh>
+      <primitive castShadow receiveShadow object={model.scene} />
     </group>
   );
 };

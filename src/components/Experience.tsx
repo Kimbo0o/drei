@@ -13,6 +13,10 @@ import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
 import BackgroundLight from "./BackgroundLight";
 import BikeFrontWheel from "./BikeFrontWheel";
+import SeatTop from "./SeatTop";
+import VrGlasses from "./VrGlasses";
+import PhotoCamera from "./PhotoCamera";
+import PrinterPlate from "./PrinterPlate";
 
 const Experience = (props: { lightMode: boolean }) => {
   const { scene } = useGLTF("/roomModel.glb");
@@ -64,7 +68,11 @@ const Experience = (props: { lightMode: boolean }) => {
       <primitive castShadow receiveShadow object={scene}>
         <Website />
       </primitive>
+      <SeatTop />
+      <VrGlasses />
+      <PhotoCamera />
       <BikeFrontWheel />
+      <PrinterPlate />
       <BackgroundLight />
       <FloorLampLight />
     </Canvas>
