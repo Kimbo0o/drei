@@ -45,7 +45,7 @@ const Experience = (props: { lightMode: boolean }) => {
   };
 
   const { x, y, z } = useControls("camera", {
-    x: { value: 0.5, min: 0, max: 10, step: 0.01 },
+    x: { value: 0.1, min: 0, max: 10, step: 0.01 },
     y: { value: 1.51, min: 0, max: 10, step: 0.01 },
     z: { value: -0.135, min: -5, max: 10, step: 0.01 },
   });

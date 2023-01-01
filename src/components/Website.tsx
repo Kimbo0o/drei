@@ -40,7 +40,7 @@ const Website = (props: {
       {props.isActive && (
         <Html
           transform
-          position={[x, y + 0.3, z]}
+          position={[x, y + 0.25, z]}
           rotation-y={Math.PI / 2}
           occlude
           distanceFactor={3}
