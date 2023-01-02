@@ -6,8 +6,9 @@ import {
   useGLTF,
   Environment,
   PerspectiveCamera,
+  Loader,
 } from "@react-three/drei";
-import { useLayoutEffect, useState } from "react";
+import { Suspense, useLayoutEffect, useState } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
 import BackgroundLight from "./BackgroundLight";
@@ -54,69 +55,74 @@ const Experience = () => {
   const [lightMode, setLightMode] = useState(true);
 
   return (
-    <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
-      {currentCamera === "orbit" && (
-        <group>
-          <PerspectiveCamera
-            fov={25}
-            near={0.1}
-            far={2000}
-            position={[10, 6, 10]}
-            makeDefault
-          />
-          <OrbitControls makeDefault target={[0, 1.5, 0]} />
-        </group>
-      )}
-      {currentCamera === "screen" && (
-        <group>
-          <PerspectiveCamera
-            fov={25}
-            near={0.1}
-            far={2000}
-            position={[x, y, z]}
-            makeDefault
-          />
-          <OrbitControls
-            makeDefault
-            target={[-1.3, 1.51, -0.135]}
-            enableZoom={false}
-          />
-        </group>
-      )}
+    <>
+      <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+        {currentCamera === "orbit" && (
+          <group>
+            <PerspectiveCamera
+              fov={25}
+              near={0.1}
+              far={2000}
+              position={[10, 6, 10]}
+              makeDefault
+            />
+            <OrbitControls makeDefault target={[0, 1.5, 0]} />
+          </group>
+        )}
+        {currentCamera === "screen" && (
+          <group>
+            <PerspectiveCamera
+              fov={25}
+              near={0.1}
+              far={2000}
+              position={[x, y, z]}
+              makeDefault
+            />
+            <OrbitControls
+              makeDefault
+              target={[-1.3, 1.51, -0.135]}
+              enableZoom={false}
+            />
+          </group>
+        )}
 
-      {lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
-      {!lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
+        {lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
+        {!lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
 
-      <AdditionalLight />
+        <color args={["#444"]} attach="background" />
 
-      <color args={["#444"]} attach="background" />
+        <Stars
+          radius={100}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade
+          speed={1}
+        />
+        <AdditionalLight />
 
-      <Stars
-        radius={100}
-        depth={50}
-        count={5000}
-        factor={4}
-        saturation={0}
-        fade
-        speed={1}
-      />
+        <Website
+          isActive={currentCamera === "screen"}
+          onGoToScreen={goToScreen}
+          onGoBack={goToOrbit}
+        />
+        <BackgroundLight />
+        <FloorLampLight />
+        <Name />
+        <LightSwitch lightMode={lightMode} setLightMode={setLightMode} />
 
-      <primitive castShadow receiveShadow object={scene} />
-      <Website
-        isActive={currentCamera === "screen"}
-        onGoToScreen={goToScreen}
-        onGoBack={goToOrbit}
-      />
-      <SeatTop />
-      <VrGlasses />
-      <PhotoCamera />
-      <BikeFrontWheel />
-      <PrinterPlate />
-      <BackgroundLight />
-      <FloorLampLight />
-      <Name />
-      <LightSwitch lightMode={lightMode} setLightMode={setLightMode} />
-    </Canvas>
+        <Suspense fallback={null}>
+          <primitive castShadow receiveShadow object={scene} />
+          <VrGlasses />
+          <SeatTop />
+          <PhotoCamera />
+          <BikeFrontWheel />
+          <PrinterPlate />
+        </Suspense>
+      </Canvas>
+      <Loader />
+    </>
   );
 };
 
