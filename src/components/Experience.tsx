@@ -19,8 +19,9 @@ import PrinterPlate from "./PrinterPlate";
 import Name from "./Name";
 import AdditionalLight from "./AdditionalLight";
 import { useControls } from "leva";
+import LightSwitch from "./LightSwitch";
 
-const Experience = (props: { lightMode: boolean }) => {
+const Experience = () => {
   const { scene } = useGLTF("/roomModel.glb");
   console.log("scene", scene);
   useLayoutEffect(() => {
@@ -50,8 +51,10 @@ const Experience = (props: { lightMode: boolean }) => {
     z: { value: -0.135, min: -5, max: 10, step: 0.01 },
   });
 
+  const [lightMode, setLightMode] = useState(true);
+
   return (
-    <Canvas shadows>
+    <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
       {currentCamera === "orbit" && (
         <group>
           <PerspectiveCamera
@@ -81,8 +84,8 @@ const Experience = (props: { lightMode: boolean }) => {
         </group>
       )}
 
-      {props.lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
-      {!props.lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
+      {lightMode && <Environment files="/potsdamer_platz_1k.hdr" />}
+      {!lightMode && <Environment files="/dikhololo_night_1k.hdr" />}
 
       <AdditionalLight />
 
@@ -112,6 +115,7 @@ const Experience = (props: { lightMode: boolean }) => {
       <BackgroundLight />
       <FloorLampLight />
       <Name />
+      <LightSwitch lightMode={lightMode} setLightMode={setLightMode} />
     </Canvas>
   );
 };
