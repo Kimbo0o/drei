@@ -20,7 +20,7 @@ function App() {
       <Experience />
       <Info />
       {!isRecommendedBrowser && (
-        <div className=" absolute top-4 left-0 w-full text-center text-gray-300">
+        <div className="absolute top-4 left-0 w-full text-center text-gray-300">
           For an optimal experience please use a Chromium-based browser
         </div>
       )}
