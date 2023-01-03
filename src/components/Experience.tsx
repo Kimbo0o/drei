@@ -21,6 +21,7 @@ import AdditionalLight from "./AdditionalLight";
 import { useControls } from "leva";
 import LightSwitch from "./LightSwitch";
 import RoomBase from "./RoomBase";
+import Audioplayer from "./AudioPlayer";
 
 const Experience = () => {
   const [currentCamera, setCurrentCamera] = useState<"orbit" | "screen">(
@@ -96,6 +97,7 @@ const Experience = () => {
           onGoToScreen={goToScreen}
           onGoBack={goToOrbit}
         />
+        <Audioplayer />
         <BackgroundLight />
         <FloorLampLight />
         <Name />

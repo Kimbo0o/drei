@@ -13,7 +13,7 @@ const Controls = () => {
       <a
         href="https://kimdanielkoch.de"
         target="_blank"
-        className="rounded-full p-2 bg-white/20 hover:bg-white/50"
+        className="rounded-full py-2 px-4 bg-white/20 hover:bg-white/50"
       >
         <span>Made by&nbsp;</span>
         <span className="underline">Kim Daniel Koch</span>
