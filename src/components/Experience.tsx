@@ -45,7 +45,7 @@ const Experience = () => {
 
   return (
     <>
-      <Canvas shadows gl={{ preserveDrawingBuffer: true }}>
+      <Canvas shadows gl={{ preserveDrawingBuffer: true }} className="z-0">
         {currentCamera === "orbit" && (
           <group>
             <PerspectiveCamera
