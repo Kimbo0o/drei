@@ -5,7 +5,6 @@ import {
   Stars,
   Environment,
   PerspectiveCamera,
-  Loader,
 } from "@react-three/drei";
 import { Suspense, useState } from "react";
 import FloorLampLight from "./FloorLampLight";
@@ -22,6 +21,7 @@ import { useControls } from "leva";
 import LightSwitch from "./LightSwitch";
 import RoomBase from "./RoomBase";
 import Audioplayer from "./AudioPlayer";
+import Loader from "./Loader";
 
 const Experience = () => {
   const [currentCamera, setCurrentCamera] = useState<"orbit" | "screen">(
@@ -81,15 +81,6 @@ const Experience = () => {
 
         <color args={["#444"]} attach="background" />
 
-        <Stars
-          radius={100}
-          depth={50}
-          count={5000}
-          factor={4}
-          saturation={0}
-          fade
-          speed={1}
-        />
         <AdditionalLight />
 
         <Website
@@ -102,17 +93,24 @@ const Experience = () => {
         <FloorLampLight />
         <Name />
         <LightSwitch lightMode={lightMode} setLightMode={setLightMode} />
-
-        <Suspense fallback={null}>
-          <RoomBase />
-          <VrGlasses />
-          <SeatTop />
-          <PhotoCamera />
-          <BikeFrontWheel />
-          <PrinterPlate />
-        </Suspense>
+        {/* <Suspense fallback={null}> */}
+        <Stars
+          radius={100}
+          depth={50}
+          count={5000}
+          factor={4}
+          saturation={0}
+          fade
+          speed={1}
+        />
+        <RoomBase />
+        <VrGlasses />
+        <SeatTop />
+        <PhotoCamera />
+        <BikeFrontWheel />
+        <PrinterPlate />
+        {/* </Suspense> */}
       </Canvas>
-      <Loader />
     </>
   );
 };
