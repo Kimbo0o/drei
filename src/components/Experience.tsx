@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-
 import {
   OrbitControls,
   Stars,
@@ -21,7 +20,6 @@ import { useControls } from "leva";
 import LightSwitch from "./LightSwitch";
 import RoomBase from "./RoomBase";
 import Audioplayer from "./AudioPlayer";
-import Loader from "./Loader";
 
 const Experience = () => {
   const [currentCamera, setCurrentCamera] = useState<"orbit" | "screen">(
