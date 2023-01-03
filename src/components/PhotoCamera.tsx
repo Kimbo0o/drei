@@ -18,19 +18,24 @@ const PhotoCamera = () => {
 
   const takePhoto = () => {
     window.setTimeout(() => {
-      const elements = document.getElementsByTagName("canvas");
-      const element = elements[0];
-      console.log("element", element);
-      const objectUrl = element.toDataURL("image/jpeg");
-      const dl = document.createElement("a");
-      dl.setAttribute("href", objectUrl);
-      dl.setAttribute("download", "image.jpeg");
-      dl.click();
       setShowFlash(true);
     }, 200);
     window.setTimeout(() => {
       setShowFlash(false);
     }, 300);
+    window.setTimeout(() => {
+      downloadScreenshot();
+    }, 1000);
+  };
+
+  const downloadScreenshot = () => {
+    const elements = document.getElementsByTagName("canvas");
+    const element = elements[0];
+    const objectUrl = element.toDataURL("image/jpeg");
+    const dl = document.createElement("a");
+    dl.setAttribute("href", objectUrl);
+    dl.setAttribute("download", "image.jpeg");
+    dl.click();
   };
 
   return (

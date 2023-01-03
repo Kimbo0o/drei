@@ -3,12 +3,11 @@ import { Canvas } from "@react-three/fiber";
 import {
   OrbitControls,
   Stars,
-  useGLTF,
   Environment,
   PerspectiveCamera,
   Loader,
 } from "@react-three/drei";
-import { Suspense, useLayoutEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import FloorLampLight from "./FloorLampLight";
 import Website from "./Website";
 import BackgroundLight from "./BackgroundLight";
@@ -21,19 +20,9 @@ import Name from "./Name";
 import AdditionalLight from "./AdditionalLight";
 import { useControls } from "leva";
 import LightSwitch from "./LightSwitch";
+import RoomBase from "./RoomBase";
 
 const Experience = () => {
-  const { scene } = useGLTF("/roomModel.glb");
-  console.log("scene", scene);
-  useLayoutEffect(() => {
-    scene.traverse((obj: any) => {
-      if (obj.isMesh) {
-        obj.castShadow = true;
-        obj.receiveShadow = true;
-      }
-    });
-  });
-
   const [currentCamera, setCurrentCamera] = useState<"orbit" | "screen">(
     "orbit"
   );
@@ -113,7 +102,7 @@ const Experience = () => {
         <LightSwitch lightMode={lightMode} setLightMode={setLightMode} />
 
         <Suspense fallback={null}>
-          <primitive castShadow receiveShadow object={scene} />
+          <RoomBase />
           <VrGlasses />
           <SeatTop />
           <PhotoCamera />

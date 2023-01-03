@@ -60,7 +60,7 @@ const Website = (props: {
         distanceFactor={distanceFactor}
         position={[x, y, z]}
         rotation-y={Math.PI / 2}
-        occlude
+        occlude="blending"
       >
         <iframe
           src="https://kimdanielkoch.de"
