@@ -1,6 +1,6 @@
 # My 3D Room
 
-This is a Three.js experiment. It resembles a 3D room filled with objects to perform my hobbies.
+This is a Three.js experiment. It is an immaginary 3D room filled with objects that I use to perform my hobbies.
 
 ### Built with
 - [Blender](https://www.blender.org/)
