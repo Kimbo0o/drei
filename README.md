@@ -11,7 +11,7 @@ This is a Three.js experiment. It is an immaginary 3D room filled with objects t
   
 All models were created by me with Blender, the Blender file is also included in this repository.
 
-![Screenshot](https:drei.kimdanielkoch.de/screenshot_full.png)
+![Screenshot](./public/screenshot_full.png)
 
 [Link](https://drei.kimdaniekoch.de)
 
