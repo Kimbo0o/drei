@@ -1,6 +1,6 @@
-# 3D Room
+# My 3D Room
 
-This is a Three.js experiment. I resembled a 3D room filled with objects to perform my hobbies.
+This is a Three.js experiment. It resembles a 3D room filled with objects to perform my hobbies.
 
 ### Built with
 - [Blender](https://www.blender.org/)
@@ -11,9 +11,10 @@ This is a Three.js experiment. I resembled a 3D room filled with objects to perf
   
 All models were created by me with Blender, the Blender file is also included in this repository.
 
+![Screenshot](https:drei.kimdanielkoch.de/screenshot_full.png)
+
 [Link](https://drei.kimdaniekoch.de)
 
-![Screenshot](https:drei.kimdanielkoch.de/../public/screenshot_full.png)
 
 ## Setup
 
