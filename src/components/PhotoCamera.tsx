@@ -1,5 +1,5 @@
 import { CameraIcon } from "@heroicons/react/20/solid";
-import { Box, Html, useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import { useLayoutEffect, useState } from "react";
 
 const PhotoCamera = () => {
@@ -48,13 +48,6 @@ const PhotoCamera = () => {
           <CameraIcon className="w-2 h-2 text-white" />
         </button>
       </Html>
-      {/* <Box args={[0.1, 0.1, 0.1]} position={[0.84, 1.3, -1.1]}>
-        <meshStandardMaterial
-          color="#fff"
-          emissive="#fff"
-          emissiveIntensity={1}
-        />
-      </Box> */}
       {showFlash && (
         <directionalLight
           position={[5, 3.6, 5]}

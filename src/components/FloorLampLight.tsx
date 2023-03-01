@@ -57,5 +57,3 @@ const FloorLampLight = () => {
 };
 
 export default FloorLampLight;
-
-// export default {};

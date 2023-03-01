@@ -1,4 +1,4 @@
-import { Html, PositionalAudio } from "@react-three/drei";
+import { Html } from "@react-three/drei";
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 
